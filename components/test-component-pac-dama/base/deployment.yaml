@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: test-component-pac-dama
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: test-component-pac-dama
+    app.kubernetes.io/part-of: build-suite-test-application-ytbx
+  name: test-component-pac-dama
+  namespace: test-pac
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: test-component-pac-dama
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: test-component-pac-dama
+    spec:
+      containers:
+      - image: quay.io/psturc/test-images
+        imagePullPolicy: Always
+        name: container-image
+        resources: {}
+status: {}
